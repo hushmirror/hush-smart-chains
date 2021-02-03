@@ -107,11 +107,13 @@ cd src
 As a first simple example, if we wanted to make a replica of Zcash called Tcash (but with many improvements):
 
 ```
-hush-smart-chain -ac_name=TCASH -ac_blocktime=75 -ac_supply=0 -ac_halving=210000 -ac_reward=1250000000 -addnode=1.2.3.4
+hush-smart-chain -ac_name=TCASH -ac_private=0 -ac_blocktime=75 -ac_supply=0 -ac_halving=210000 -ac_reward=1250000000 -addnode=1.2.3.4
 ```
 
 The above command makes the ticker of that chain `TCASH` with a block time of 75 seconds and halving every 210000 bloks with
 initial reward of 12.5 TCASH. The default block time is now 60 seconds and is a good default for most use cases.
+The argument `-ac_private=0` is needed because HSC's are z2z by default, which means only private transactions can be made.
+Zcash mainnet (ZEC) does not have `z2z` and only a small percentage of transactions actually use privacy, around 5%.
 
 
 ### Pirate replica
